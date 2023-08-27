@@ -7,7 +7,7 @@ on:
 permissions: write-all
 
 env:
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GH_TOKEN: ${{ secrets.GH_PAT }}
 
 jobs:
   process:
@@ -15,5 +15,4 @@ jobs:
     if: ${{ github.event.issue.pull_request && startsWith(github.event.comment.body, '/bot ') }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: xlc/fellowship-process-bot@main
